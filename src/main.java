@@ -1,7 +1,15 @@
+import java.util.Queue;
+
 class Main {
-    public static void main(String[] args) {
-        //Task1_2();
-        //Task3();
+    //task 4
+    public static volatile boolean Flag = true;
+    public static volatile Consumer CurrentConsumer;
+    public static int ConsumerNameNumber = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        // Task1_2();
+        // Task3();
+        // Task4();
     }
 
     private static void Task1_2() {
@@ -32,5 +40,29 @@ class Main {
         stringBuilderThread1.start();
         stringBuilderThread2.start();
         stringBuilderThread3.start();
+    }
+
+    private static void Task4() throws InterruptedException {
+        MyQueue<Integer> myQueue = new MyQueue<Integer>();
+
+        Producer producer = new Producer(myQueue);
+        Consumer consumer1 = new Consumer(myQueue);
+        Consumer consumer2 = new Consumer(myQueue);
+
+        Thread t1 = new Thread(producer);
+        Thread t2 = new Thread(consumer1);
+        Thread t3 = new Thread(consumer2);
+
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+
+        t1.join();
+        t2.join();
+        t3.join();
+
+        System.out.printf("объект из очереди обработал %s", CurrentConsumer);
     }
 }
