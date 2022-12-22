@@ -1,19 +1,21 @@
+package task4;
+
 public class Consumer implements Runnable {
     private final MyQueue<Integer> _queue;
     private final String _name;
 
     public Consumer(MyQueue<Integer> myQueue) {
         this._queue = myQueue;
-        Main.ConsumerNameNumber++;
-        _name = String.format("Consumer%d", Main.ConsumerNameNumber);
+        Task4_main.ConsumerNameNumber++;
+        _name = String.format("Consumer%d", Task4_main.ConsumerNameNumber);
     }
 
     @Override
     public void run() {
-        while (Main.Flag){
+        while (Task4_main.Flag){
             _queue.get();
-            Main.CurrentConsumer = this;
-            Main.Flag = false;
+            Task4_main.CurrentConsumer = this;
+            Task4_main.Flag = false;
         }
     }
 

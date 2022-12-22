@@ -1,4 +1,4 @@
-import java.util.Queue;
+package task4;
 
 public class Producer implements Runnable {
     private final MyQueue<Integer> myQueue;
@@ -9,7 +9,7 @@ public class Producer implements Runnable {
     }
 
     public void run() {
-        while (Main.Flag) {
+        while (Task4_main.Flag) {
             myQueue.put(_currentNumber);
             _currentNumber++;
         }

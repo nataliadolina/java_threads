@@ -1,3 +1,5 @@
+package task3;
+
 public class StringBuilderThread extends Thread {
     private final StringBuilderThreadArgs _args;
     private final CharSequence alphabet = "abcdefghijklmnopqrstuvwxyz";

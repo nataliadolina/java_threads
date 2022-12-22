@@ -1,3 +1,5 @@
+package task3;
+
 public class StringBuilderThreadArgs {
     public StringBuilder Str;
     public Integer Index;

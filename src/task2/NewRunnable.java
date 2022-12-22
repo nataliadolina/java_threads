@@ -1,4 +1,5 @@
-import java.lang.Thread;
+package task2;
+
 import java.util.Random;
 
 public class NewRunnable implements Runnable{
